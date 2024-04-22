@@ -1,0 +1,47 @@
+{
+    "nodes": [
+        {
+            "id": "fd6bbc5f9754162f",
+            "name": "Oscillator",
+            "data": { "baseFreq": 440, "waveform": "sine" }
+        },
+        { "id": "eaf61eeae013a92e", "name": "Gain", "data": { "gain": 0.5 } },
+        {
+            "id": "e28d78cfb85364af",
+            "name": "Universal Output",
+            "data": { "gain": 0.8 }
+        },
+        {
+            "id": "79e92d958baff7f5",
+            "name": "Oscillator",
+            "data": { "baseFreq": 220, "waveform": "sine" }
+        },
+        { "id": "63863aafacb20fd9", "name": "Gain", "data": { "gain": 1000 } }
+    ],
+    "connections": [
+        {
+            "source": "eaf61eeae013a92e",
+            "sourceOutput": "signal",
+            "target": "e28d78cfb85364af",
+            "targetInput": "signal"
+        },
+        {
+            "source": "fd6bbc5f9754162f",
+            "sourceOutput": "signal",
+            "target": "eaf61eeae013a92e",
+            "targetInput": "signal"
+        },
+        {
+            "source": "79e92d958baff7f5",
+            "sourceOutput": "signal",
+            "target": "63863aafacb20fd9",
+            "targetInput": "signal"
+        },
+        {
+            "source": "63863aafacb20fd9",
+            "sourceOutput": "signal",
+            "target": "fd6bbc5f9754162f",
+            "targetInput": "frequency"
+        }
+    ]
+}
