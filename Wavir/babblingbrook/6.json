@@ -1,0 +1,98 @@
+{
+    "nodes": [
+      {
+        "id": "noise1",
+        "name": "Noise",
+        "data": {
+          "noiseType": "Pink Noise"
+        }
+      },
+      {
+        "id": "filter1",
+        "name": "Biquad Filter",
+        "data": {
+          "freq": 1000,
+          "q": 1,
+          "gain": 0,
+          "filterType": "lowpass"
+        }
+      },
+      {
+        "id": "gain1",
+        "name": "Gain",
+        "data": {
+          "gain": 0.3
+        }
+      },
+      {
+        "id": "delay1",
+        "name": "Delay",
+        "data": {
+          "delayTime": 0.1
+        }
+      },
+      {
+        "id": "gain2",
+        "name": "Gain",
+        "data": {
+          "gain": 0.5
+        }
+      },
+      {
+        "id": "filter2",
+        "name": "Biquad Filter",
+        "data": {
+          "freq": 500,
+          "q": 1,
+          "gain": 0,
+          "filterType": "lowpass"
+        }
+      },
+      {
+        "id": "output",
+        "name": "Universal Output",
+        "data": {
+          "gain": 1
+        }
+      }
+    ],
+    "connections": [
+      {
+        "source": "noise1",
+        "sourceOutput": "signal",
+        "target": "filter1",
+        "targetInput": "signal"
+      },
+      {
+        "source": "filter1",
+        "sourceOutput": "signal",
+        "target": "gain1",
+        "targetInput": "signal"
+      },
+      {
+        "source": "gain1",
+        "sourceOutput": "signal",
+        "target": "delay1",
+        "targetInput": "signal"
+      },
+      {
+        "source": "delay1",
+        "sourceOutput": "signal",
+        "target": "gain2",
+        "targetInput": "signal"
+      },
+      {
+        "source": "gain2",
+        "sourceOutput": "signal",
+        "target": "filter2",
+        "targetInput": "signal"
+      },
+      {
+        "source": "filter2",
+        "sourceOutput": "signal",
+        "target": "output",
+        "targetInput": "signal"
+      }
+    ]
+  }
+  

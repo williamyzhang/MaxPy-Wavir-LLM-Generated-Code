@@ -1,0 +1,71 @@
+{
+    "nodes": [
+      {
+        "id": "noise1",
+        "name": "Noise",
+        "data": {
+          "noiseType": "Brown Noise"
+        }
+      },
+      {
+        "id": "filterLowpass",
+        "name": "Biquad Filter",
+        "data": {
+          "filterType": "lowpass",
+          "freq": 700,
+          "q": 1,
+          "gain": 0
+        }
+      },
+      {
+        "id": "filterHighpass",
+        "name": "Biquad Filter",
+        "data": {
+          "filterType": "highpass",
+          "freq": 400,
+          "q": 1,
+          "gain": 0
+        }
+      },
+      {
+        "id": "gain1",
+        "name": "Gain",
+        "data": {
+          "gain": 0.3
+        }
+      },
+      {
+        "id": "output1",
+        "name": "Universal Output",
+        "data": {
+          "gain": 1
+        }
+      }
+    ],
+    "connect": [
+      {
+        "from": "noise1",
+        "to": "filterLowpass",
+        "output": "signal",
+        "input": "signal"
+      },
+      {
+        "from": "filterLowpass",
+        "to": "filterHighpass",
+        "output": "signal",
+        "input": "signal"
+      },
+      {
+        "from": "filterHighpass",
+        "to": "gain1",
+        "output": "signal",
+        "input": "signal"
+      },
+      {
+        "from": "gain1",
+        "to": "output1",
+        "output": "signal",
+        "input": "signal"
+      }
+    ]
+  }

@@ -1,0 +1,81 @@
+{
+    "nodes": [
+      {
+        "id": "osc1",
+        "name": "Oscillator",
+        "data": {
+          "baseFreq": 440,
+          "waveform": "sine"
+        }
+      },
+      {
+        "id": "gain1",
+        "name": "Gain",
+        "data": {
+          "gain": 0.1
+        }
+      },
+      {
+        "id": "filter1",
+        "name": "BiquadFilter",
+        "data": {
+          "type": "lowpass",
+          "frequency": 1000,
+          "detune": 0,
+          "Q": 8.30
+        }
+      },
+      {
+        "id": "noise1",
+        "name": "WhiteNoise",
+        "data": {}
+      },
+      {
+        "id": "gainNoise",
+        "name": "Gain",
+        "data": {
+          "gain": 0.2
+        }
+      },
+      {
+        "id": "output1",
+        "name": "Universal Output",
+        "data": {
+          "gain": 0.8
+        }
+      }
+    ],
+    "connections": [
+      {
+        "source": "osc1",
+        "sourceOutput": "signal",
+        "target": "gain1",
+        "targetInput": "signal"
+      },
+      {
+        "source": "gain1",
+        "sourceOutput": "signal",
+        "target": "filter1",
+        "targetInput": "signal"
+      },
+      {
+        "source": "noise1",
+        "sourceOutput": "signal",
+        "target": "gainNoise",
+        "targetInput": "signal"
+      },
+      {
+        "source": "gainNoise",
+        "sourceOutput": "signal",
+        "target": "filter1",
+        "targetInput": "additionalSignal"
+      },
+      {
+        "source": "filter1",
+        "sourceOutput": "signal",
+        "target": "output1",
+        "targetInput": "signal"
+      }
+    ]
+  }
+  

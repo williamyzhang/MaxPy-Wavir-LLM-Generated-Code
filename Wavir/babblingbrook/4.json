@@ -1,0 +1,59 @@
+{
+    "nodes": [
+      {
+        "name": "Noise",
+        "data": {
+          "noiseType": "Pink Noise"
+        },
+        "outputs": {
+          "signal": "pinkNoiseSignal"
+        }
+      },
+      {
+        "name": "Biquad Filter",
+        "data": {
+          "filterType": "lowpass",
+          "freq": 800,
+          "q": 1,
+          "gain": 0
+        },
+        "inputs": {
+          "signal": "pinkNoiseSignal"
+        },
+        "outputs": {
+          "signal": "filteredNoiseSignal"
+        }
+      },
+      {
+        "name": "Gain",
+        "data": {
+          "gain": 0.3
+        },
+        "inputs": {
+          "signal": "filteredNoiseSignal"
+        },
+        "outputs": {
+          "signal": "loweredNoiseSignal"
+        }
+      },
+      {
+        "name": "Delay",
+        "data": {
+          "delay": 0.3,
+          "maxDelay": 1
+        },
+        "inputs": {
+          "signal": "loweredNoiseSignal"
+        },
+        "outputs": {
+          "signal": "delayedNoiseSignal"
+        }
+      },
+      {
+        "name": "Audio Output",
+        "inputs": {
+          "signal": "delayedNoiseSignal"
+        }
+      }
+    ]
+  }  

@@ -1,0 +1,136 @@
+{
+    "nodes": [
+      {
+        "type": "Noise",
+        "data": {
+          "noiseType": "Brown Noise"
+        },
+        "id": "brown-noise-1",
+        "outputs": {
+          "signal": {
+            "connections": [
+              {
+                "node": "biquad-filter-1",
+                "input": "signal"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "Biquad Filter",
+        "data": {
+          "filterType": "bandpass",
+          "q": 1.0,
+          "freq": 500,
+          "gain": 0
+        },
+        "id": "biquad-filter-1",
+        "inputs": {
+          "signal": {},
+          "frequency": {},
+          "q": {},
+          "gain": {}
+        },
+        "outputs": {
+          "signal": {
+            "connections": [
+              {
+                "node": "gain-1",
+                "input": "signal"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "Noise",
+        "data": {
+          "noiseType": "Pink Noise"
+        },
+        "id": "pink-noise-1",
+        "outputs": {
+          "signal": {
+            "connections": [
+              {
+                "node": "gain-2",
+                "input": "signal"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "Gain",
+        "data": {
+          "gain": 0.3
+        },
+        "id": "gain-1",
+        "inputs": {
+          "signal": {},
+          "additionalGain": {}
+        },
+        "outputs": {
+          "signal": {
+            "connections": [
+              {
+                "node": "audio-output-1",
+                "input": "signal"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "Gain",
+        "data": {
+          "gain": 0.1
+        },
+        "id": "gain-2",
+        "inputs": {
+          "signal": {},
+          "additionalGain": {}
+        },
+        "outputs": {
+          "signal": {
+            "connections": [
+              {
+                "node": "delay-1",
+                "input": "signal"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "Delay",
+        "data": {
+          "delay": 2.5,
+          "maxDelay": 5.0
+        },
+        "id": "delay-1",
+        "inputs": {
+          "signal": {},
+          "delayTime": {}
+        },
+        "outputs": {
+          "signal": {
+            "connections": [
+              {
+                "node": "audio-output-1",
+                "input": "signal"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "Audio Output",
+        "id": "audio-output-1",
+        "inputs": {
+          "signal": {}
+        }
+      }
+    ]
+  }
+  
