@@ -1,0 +1,104 @@
+{
+    "nodes": [
+      {
+        "id": 1,
+        "type": "Noise",
+        "data": {
+          "noiseType": "Brown Noise"
+        },
+        "outputs": {
+          "signal": [
+            {
+              "id": 2,
+              "input": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "id": 2,
+        "type": "Biquad Filter",
+        "data": {
+          "filterType": "lowpass",
+          "q": 1.0,
+          "freq": 700,
+          "gain": 0
+        },
+        "inputs": {
+          "signal": [
+            {
+              "id": 1,
+              "output": "signal"
+            }
+          ]
+        },
+        "outputs": {
+          "signal": [
+            {
+              "id": 3,
+              "input": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "id": 3,
+        "type": "Gain",
+        "data": {
+          "gain": 0.5
+        },
+        "inputs": {
+          "signal": [
+            {
+              "id": 2,
+              "output": "signal"
+            }
+          ]
+        },
+        "outputs": {
+          "signal": [
+            {
+              "id": 4,
+              "input": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "type": "Delay",
+        "data": {
+          "delay": 0.2,
+          "maxDelay": 5.0
+        },
+        "inputs": {
+          "signal": [
+            {
+              "id": 3,
+              "output": "signal"
+            }
+          ]
+        },
+        "outputs": {
+          "signal": [
+            {
+              "id": 5,
+              "input": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "id": 5,
+        "type": "Audio Output",
+        "inputs": {
+          "signal": [
+            {
+              "id": 4,
+              "output": "signal"
+            }
+          ]
+        }
+      }
+    ]
+  }

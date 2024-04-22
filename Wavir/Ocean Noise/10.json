@@ -1,0 +1,67 @@
+{
+    "nodes": [
+        {
+            "id": "ocean_osc",
+            "name": "Oscillator",
+            "data": {
+                "baseFreq": 0.2,
+                "waveform": "sine"
+            }
+        },
+        {
+            "id": "ocean_noise",
+            "name": "Noise",
+            "data": {
+                "noiseType": "Brown Noise"
+            }
+        },
+        {
+            "id": "ocean_filter",
+            "name": "Biquad Filter",
+            "data": {
+                "freq": 700,
+                "q": 1,
+                "gain": 0,
+                "filterType": "lowpass"
+            }
+        },
+        {
+            "id": "ocean_gain",
+            "name": "Gain",
+            "data": {
+                "gain": 0.3
+            }
+        },
+        {
+            "id": "output",
+            "name": "Universal Output",
+            "data": {}
+        }
+    ],
+    "connections": [
+        {
+            "source": "ocean_osc",
+            "sourceOutput": "signal",
+            "target": "ocean_filter",
+            "targetInput": "signal"
+        },
+        {
+            "source": "ocean_noise",
+            "sourceOutput": "signal",
+            "target": "ocean_filter",
+            "targetInput": "signal"
+        },
+        {
+            "source": "ocean_filter",
+            "sourceOutput": "signal",
+            "target": "ocean_gain",
+            "targetInput": "signal"
+        },
+        {
+            "source": "ocean_gain",
+            "sourceOutput": "signal",
+            "target": "output",
+            "targetInput": "signal"
+        }
+    ]
+}
