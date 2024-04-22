@@ -1,0 +1,86 @@
+{
+  "nodes": [
+    {
+      "name": "Oscillator",
+      "id": "osc1",
+      "data": {
+        "waveform": "triangle",
+        "baseFreq": 240
+      },
+      "inputs": {},
+      "outputs": {
+        "signal": [
+          {
+            "id": "gain1",
+            "input": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Gain",
+      "id": "gain1",
+      "data": {
+        "gain": 0.5
+      },
+      "inputs": {
+        "signal": [
+          {
+            "id": "osc1",
+            "output": "signal"
+          }
+        ],
+        "additionalGain": []
+      },
+      "outputs": {
+        "signal": [
+          {
+            "id": "delay1",
+            "input": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Delay",
+      "id": "delay1",
+      "data": {
+        "delay": 1,
+        "maxDelay": 2.5
+      },
+      "inputs": {
+        "signal": [
+          {
+            "id": "gain1",
+            "output": "signal"
+          }
+        ],
+        "delayTime": []
+      },
+      "outputs": {
+        "signal": [
+          {
+            "id": "gainGlobal",
+            "input": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Universal Output",
+      "id": "gainGlobal",
+      "data": {
+        "gain": 0.8
+      },
+      "inputs": {
+        "signal": [
+          {
+            "id": "delay1",
+            "output": "signal"
+          }
+        ]
+      },
+      "outputs": {}
+    }
+  ]
+}

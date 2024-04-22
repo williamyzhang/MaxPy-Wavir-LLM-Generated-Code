@@ -1,0 +1,83 @@
+{
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Oscillator",
+      "data": {
+        "baseFreq": 1046.5,
+        "detune": 0,
+        "phaseOffset": 0,
+        "waveform": "sine"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Gain",
+      "data": {
+        "gain": 0.5
+      }
+    },
+    {
+      "id": "3",
+      "name": "Delay",
+      "data": {
+        "delayTime": 1500,
+        "mix": 0.3
+      }
+    },
+    {
+      "id": "4",
+      "name": "Gain",
+      "data": {
+        "gain": 0.8
+      }
+    },
+    {
+      "id": "5",
+      "name": "Biquad Filter",
+      "data": {
+        "filterType": "lowpass",
+        "freq": 2500,
+        "q": 1,
+        "gain": 0
+      }
+    },
+    {
+      "id": "6",
+      "name": "Universal Output",
+      "data": {}
+    }
+  ],
+  "connections": [
+    {
+      "source": "1",
+      "sourceOutput": "signal",
+      "target": "2",
+      "targetInput": "signal"
+    },
+    {
+      "source": "2",
+      "sourceOutput": "signal",
+      "target": "3",
+      "targetInput": "signal"
+    },
+    {
+      "source": "3",
+      "sourceOutput": "signal",
+      "target": "4",
+      "targetInput": "signal"
+    },
+    {
+      "source": "4",
+      "sourceOutput": "signal",
+      "target": "5",
+      "targetInput": "signal"
+    },
+    {
+      "source": "5",
+      "sourceOutput": "signal",
+      "target": "6",
+      "targetInput": "signal"
+    }
+  ]
+}

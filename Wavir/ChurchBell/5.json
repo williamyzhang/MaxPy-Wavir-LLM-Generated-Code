@@ -1,0 +1,54 @@
+{
+  "nodes": [
+    {
+      "name": "Oscillator",
+      "id": "osc1",
+      "data": {
+        "waveform": "triangle",
+        "baseFreq": 300
+      },
+      "outputs": {
+        "signal": "gain1:signal"
+      }
+    },
+    {
+      "name": "Gain",
+      "id": "gain1",
+      "data": {
+        "gain": 0.5
+      },
+      "inputs": {
+        "signal": "osc1:signal"
+      },
+      "outputs": {
+        "signal": "adsr1:signal"
+      }
+    },
+    {
+      "name": "Keyboard ADSR",
+      "id": "adsr1",
+      "data": {
+        "attack": 0.1,
+        "attackLength": 0.5,
+        "decay": 0.2,
+        "decayLength": 0.1,
+        "sustain": 0.5,
+        "sustainLength": 2,
+        "releaseLength": 5
+      },
+      "inputs": {
+        "signal": "gain1:signal"
+      },
+      "outputs": {
+        "signal": "output1:signal"
+      }
+    },
+    {
+      "name": "Audio Output",
+      "id": "output1",
+      "inputs": {
+        "signal": "adsr1:signal"
+      }
+    }
+  ]
+}

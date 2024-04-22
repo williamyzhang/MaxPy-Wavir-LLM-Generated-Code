@@ -1,0 +1,77 @@
+{
+  "nodes": [
+    {
+      "name": "Oscillator",
+      "id": "osc1",
+      "data": {
+        "waveform": "sine",
+        "baseFreq": 130.81
+      }
+    },
+    {
+      "name": "Gain",
+      "id": "gain1",
+      "data": {
+        "gain": 0.3
+      },
+      "inputs": {
+        "signal": {
+          "connections": [
+            {
+              "node": "osc1",
+              "output": "signal"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delay",
+      "id": "delay1",
+      "data": {
+        "delay": 0.5,
+        "maxDelay": 1
+      },
+      "inputs": {
+        "signal": {
+          "connections": [
+            {
+              "node": "gain1",
+              "output": "signal"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Gain",
+      "id": "gain2",
+      "data": {
+        "gain": 0.6
+      },
+      "inputs": {
+        "signal": {
+          "connections": [
+            {
+              "node": "delay1",
+              "output": "signal"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Audio Output",
+      "inputs": {
+        "signal": {
+          "connections": [
+            {
+              "node": "gain2",
+              "output": "signal"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "nodes": [
+    {
+      "type": "sine",
+      "id": "osc1",
+      "frequency": {
+        "value": 659,
+        "inputs": []
+      },
+      "detune": {
+        "value": 0,
+        "inputs": []
+      },
+      "channelCount": 2,
+      "channelCountMode": "max",
+      "channelInterpretation": "speakers",
+      "startTime": 0,
+      "stopTime": 2
+    },
+    {
+      "type": "GainNode",
+      "id": "gain1",
+      "gain": {
+        "value": 1,
+        "inputs": []
+      },
+      "channelCount": 2,
+      "channelCountMode": "max",
+      "channelInterpretation": "speakers"
+    },
+    {
+      "type": "sine",
+      "id": "osc2",
+      "frequency": {
+        "value": 1318,
+        "inputs": []
+      },
+      "detune": {
+        "value": 0,
+        "inputs": []
+      },
+      "channelCount": 2,
+      "channelCountMode": "max",
+      "channelInterpretation": "speakers",
+      "startTime": 0,
+      "stopTime": 2
+    },
+    {
+      "type": "GainNode",
+      "id": "gain2",
+      "gain": {
+        "value": 0.5,
+        "inputs": []
+      },
+      "channelCount": 2,
+      "channelCountMode": "max",
+      "channelInterpretation": "speakers"
+    },
+    {
+      "type": "lowpass",
+      "id": "filter",
+      "frequency": {
+        "value": 2000,
+        "inputs": []
+      },
+      "Q": {
+        "value": 1,
+        "inputs": []
+      },
+      "channelCount": 2,
+      "channelCountMode": "max",
+      "channelInterpretation": "speakers"
+    }
+  ],
+  "connections": [
+    {
+      "source": "osc1",
+      "target": "gain1"
+    },
+    {
+      "source": "gain1",
+      "target": "filter"
+    },
+    {
+      "source": "osc2",
+      "target": "gain2"
+    },
+    {
+      "source": "gain2",
+      "target": "filter"
+    },
+    {
+      "source": "filter",
+      "target": "AudioDestinationNode"
+    }
+  ]
+}

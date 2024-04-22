@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "name": "Oscillator",
+      "id": "osc1",
+      "data": {
+        "waveform": "triangle",
+        "baseFreq": 233.08
+      },
+      "inputs": {},
+      "outputs": {
+        "signal": "filter1"
+      }
+    },
+    {
+      "name": "Oscillator",
+      "id": "osc2",
+      "data": {
+        "waveform": "triangle",
+        "baseFreq": 466.16
+      },
+      "inputs": {},
+      "outputs": {
+        "signal": "filter1"
+      }
+    },
+    {
+      "name": "Gain",
+      "id": "gain1",
+      "data": {
+        "gain": 0.5
+      },
+      "inputs": {
+        "signal": "filter1"
+      },
+      "outputs": {
+        "signal": "filter1"
+      }
+    },
+    {
+      "name": "Biquad Filter",
+      "id": "filter1",
+      "data": {
+        "filterType": "lowpass",
+        "q": 1,
+        "freq": 3500,
+        "gain": 0
+      },
+      "inputs": {},
+      "outputs": {
+        "signal": "output1"
+      }
+    },
+    {
+      "name": "Delay",
+      "id": "delay1",
+      "data": {
+        "delay": 0.4,
+        "maxDelay": 1
+      },
+      "inputs": {
+        "signal": "gain1"
+      },
+      "outputs": {
+        "signal": "output1"
+      }
+    },
+    {
+      "name": "Universal Output",
+      "id": "output1",
+      "data": {
+        "gain": 0.9
+      },
+      "inputs": {},
+      "outputs": {}
+    }
+  ]
+}

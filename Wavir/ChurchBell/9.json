@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "type": "Oscillator",
+      "id": "bellTone",
+      "data": {
+        "waveform": "triangle",
+        "baseFreq": 830
+      }
+    },
+    {
+      "type": "Gain",
+      "id": "bellEnv",
+      "data": {
+        "gain": 0.5
+      }
+    },
+    {
+      "type": "Delay",
+      "id": "bellDelay",
+      "data": {
+        "delay": 0.4,
+        "maxDelay": 1
+      }
+    },
+    {
+      "type": "BiquadFilter",
+      "id": "bellFilter",
+      "data": {
+        "filterType": "lowpass",
+        "freq": 2500,
+        "q": 0.5,
+        "gain": 0
+      }
+    },
+    {
+      "type": "Gain",
+      "id": "bellGain",
+      "data": {
+        "gain": 0.1
+      }
+    },
+    {
+      "type": "UniversalOutput",
+      "id": "output",
+      "data": {
+        "gain": 1
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "bellTone",
+      "to": "bellEnv",
+      "type": "audio"
+    },
+    {
+      "from": "bellEnv",
+      "to": "bellDelay",
+      "type": "audio"
+    },
+    {
+      "from": "bellDelay",
+      "to": "bellFilter",
+      "type": "audio"
+    },
+    {
+      "from": "bellFilter",
+      "to": "bellGain",
+      "type": "audio"
+    },
+    {
+      "from": "bellGain",
+      "to": "output",
+      "type": "audio"
+    }
+  ]
+}

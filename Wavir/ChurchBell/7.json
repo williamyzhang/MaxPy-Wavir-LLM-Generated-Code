@@ -1,0 +1,98 @@
+{
+  "nodes": [
+    {
+      "name": "Oscillator",
+      "id": "osc1",
+      "data": {
+        "waveform": "triangle",
+        "baseFreq": 392
+      },
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "signal",
+          "connections": [
+            {
+              "node": "gain1",
+              "input": "signal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gain",
+      "id": "gain1",
+      "data": {
+        "gain": 0.2
+      },
+      "inputs": [
+        {
+          "name": "signal",
+          "connections": [
+            {
+              "node": "osc1",
+              "output": "signal"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "signal",
+          "connections": [
+            {
+              "node": "delay1",
+              "input": "signal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Delay",
+      "id": "delay1",
+      "data": {
+        "delay": 1,
+        "maxDelay": 5
+      },
+      "inputs": [
+        {
+          "name": "signal",
+          "connections": [
+            {
+              "node": "gain1",
+              "output": "signal"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "signal",
+          "connections": [
+            {
+              "node": "output",
+              "input": "signal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Audio Output",
+      "id": "output",
+      "inputs": [
+        {
+          "name": "signal",
+          "connections": [
+            {
+              "node": "delay1",
+              "output": "signal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
