@@ -1,0 +1,55 @@
+{
+    "nodes": [
+        {
+            "id": "osc1",
+            "name": "Oscillator",
+            "data": { "baseFreq": 440, "waveform": "sine" }
+        },
+        {
+            "id": "lfo",
+            "name": "Oscillator",
+            "data": { "baseFreq": 6, "waveform": "sine" }
+        },
+        {
+            "id": "lfoGain",
+            "name": "Gain",
+            "data": { "gain": 10 }
+        },
+        {
+            "id": "gain1",
+            "name": "Gain",
+            "data": { "gain": 0.5 }
+        },
+        {
+            "id": "out",
+            "name": "Universal Output",
+            "data": { "gain": 1.0 }
+        }
+    ],
+    "connections": [
+        {
+            "source": "osc1",
+            "sourceOutput": "signal",
+            "target": "gain1",
+            "targetInput": "signal"
+        },
+        {
+            "source": "gain1",
+            "sourceOutput": "signal",
+            "target": "out",
+            "targetInput": "signal"
+        },
+        {
+            "source": "lfo",
+            "sourceOutput": "signal",
+            "target": "lfoGain",
+            "targetInput": "signal"
+        },
+        {
+            "source": "lfoGain",
+            "sourceOutput": "signal",
+            "target": "osc1",
+            "targetInput": "frequency"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "nodes": [
+      {
+        "type": "OscillatorNode",
+        "id": "osc1",
+        "frequency": 440,
+        "detune": 0,
+        "type": "sine",
+        "startTime": 0,
+        "stopTime": "Infinity"
+      },
+      {
+        "type": "OscillatorNode",
+        "id": "lfo",
+        "frequency": 5,
+        "detune": 0,
+        "type": "sine",
+        "startTime": 0,
+        "stopTime": "Infinity"
+      },
+      {
+        "type": "GainNode",
+        "id": "lfoGain",
+        "gain": 10
+      },
+      {
+        "type": "AudioDestinationNode",
+        "id": "destination"
+      }
+    ],
+    "connections": [
+      ["osc1", "destination"],
+      ["lfo", "lfoGain"],
+      ["lfoGain", "osc1.frequency"]
+    ]
+  }

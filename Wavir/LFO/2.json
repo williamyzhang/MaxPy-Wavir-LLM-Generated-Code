@@ -1,0 +1,93 @@
+{
+    "nodes": [
+      {
+        "name": "Oscillator",
+        "id": "vibratoLFO",
+        "data": {
+          "waveform": "sine",
+          "baseFreq": 5
+        },
+        "inputs": {},
+        "outputs": {
+          "signal": {
+            "connections": [
+              {
+                "node": "vibratoGain",
+                "input": "signal"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Gain",
+        "id": "vibratoGain",
+        "data": {
+          "gain": 30
+        },
+        "inputs": {
+          "signal": {
+            "connections": [
+              {
+                "node": "vibratoLFO",
+                "output": "signal"
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "signal": {
+            "connections": [
+              {
+                "node": "mainOscillator",
+                "input": "frequency"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Oscillator",
+        "id": "mainOscillator",
+        "data": {
+          "waveform": "sine",
+          "baseFreq": 440
+        },
+        "inputs": {
+          "frequency": {
+            "connections": [
+              {
+                "node": "vibratoGain",
+                "output": "signal"
+              }
+            ]
+          }
+        },
+        "outputs": {
+          "signal": {
+            "connections": [
+              {
+                "node": "audioOutput",
+                "input": "signal"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Audio Output",
+        "id": "audioOutput",
+        "data": {},
+        "inputs": {
+          "signal": {
+            "connections": [
+              {
+                "node": "mainOscillator",
+                "output": "signal"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
