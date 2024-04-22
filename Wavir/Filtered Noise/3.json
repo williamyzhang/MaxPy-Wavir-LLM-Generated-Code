@@ -1,0 +1,57 @@
+{
+    "nodes": [
+      {
+        "id": "noise1",
+        "type": "Noise",
+        "data": {
+          "noiseType": "White Noise"
+        },
+        "outputs": {
+          "signal": [
+            {
+              "node": "filter1",
+              "input": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "id": "filter1",
+        "type": "BiquadFilter",
+        "data": {
+          "filterType": "lowpass",
+          "freq": 1000,
+          "q": 1,
+          "gain": 0
+        },
+        "inputs": {
+          "signal": [
+            {
+              "node": "noise1",
+              "output": "signal"
+            }
+          ]
+        },
+        "outputs": {
+          "signal": [
+            {
+              "node": "output1",
+              "input": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "id": "output1",
+        "type": "AudioOutput",
+        "inputs": {
+          "signal": [
+            {
+              "node": "filter1",
+              "output": "signal"
+            }
+          ]
+        }
+      }
+    ]
+  }

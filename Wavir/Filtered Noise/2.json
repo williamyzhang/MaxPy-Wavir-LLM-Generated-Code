@@ -1,0 +1,38 @@
+{
+    "nodes": [
+      {
+        "id": "noise",
+        "name": "Noise",
+        "data": { "noiseType": "white" }
+      },
+      {
+        "id": "filter",
+        "name": "BiquadFilter",
+        "data": {
+          "filterType": "lowpass",
+          "freq": 1000,
+          "q": 1,
+          "gain": 0
+        }
+      },
+      {
+        "id": "output",
+        "name": "UniversalOutput",
+        "data": {}
+      }
+    ],
+    "connections": [
+      {
+        "source": "noise",
+        "sourceOutput": "signal",
+        "target": "filter",
+        "targetInput": "signal"
+      },
+      {
+        "source": "filter",
+        "sourceOutput": "signal",
+        "target": "output",
+        "targetInput": "signal"
+      }
+    ]
+  }

@@ -1,0 +1,35 @@
+{
+    "nodes": [
+      {
+        "id": "1",
+        "type": "NoiseGenerator",
+        "data": {
+          "noiseType": "white"
+        }
+      },
+      {
+        "id": "2",
+        "type": "BiquadFilter",
+        "data": {
+          "type": "lowpass",
+          "frequency": 1000,
+          "Q": 1
+        }
+      },
+      {
+        "id": "3",
+        "type": "AudioDestination",
+        "data": {}
+      }
+    ],
+    "connections": [
+      {
+        "source": "1",
+        "target": "2"
+      },
+      {
+        "source": "2",
+        "target": "3"
+      }
+    ]
+  }

@@ -1,0 +1,40 @@
+{
+    "nodes": [
+        {
+            "id": "noiseGenerator",
+            "name": "Noise",
+            "data": {
+                "noiseType": "white"
+            }
+        },
+        {
+            "id": "lowPassFilter",
+            "name": "BiquadFilter",
+            "data": {
+                "freq": 1000,
+                "q": 1,
+                "gain": 0,
+                "filterType": "lowpass"
+            }
+        },
+        {
+            "id": "output",
+            "name": "Output",
+            "data": {}
+        }
+    ],
+    "connections": [
+        {
+            "source": "noiseGenerator",
+            "sourceOutput": "signal",
+            "target": "lowPassFilter",
+            "targetInput": "signal"
+        },
+        {
+            "source": "lowPassFilter",
+            "sourceOutput": "signal",
+            "target": "output",
+            "targetInput": "signal"
+        }
+    ]
+}

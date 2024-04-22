@@ -1,0 +1,53 @@
+{
+    "nodes": [
+        {
+            "id": "noise1",
+            "name": "Noise",
+            "data": {
+                "noiseType": "white"
+            }
+        },
+        {
+            "id": "filter1",
+            "name": "BiquadFilter",
+            "data": {
+                "type": "lowpass",
+                "frequency": 1000,
+                "Q": 1,
+                "gain": 0
+            }
+        },
+        {
+            "id": "gain1",
+            "name": "Gain",
+            "data": {
+                "gain": 0.5
+            }
+        },
+        {
+            "id": "destination1",
+            "name": "AudioDestinationNode",
+            "data": {}
+        }
+    ],
+    "connections": [
+        {
+            "source": "noise1",
+            "sourceOutput": "output",
+            "target": "filter1",
+            "targetInput": "input"
+        },
+        {
+            "source": "filter1",
+            "sourceOutput": "output",
+            "target": "gain1",
+            "targetInput": "input"
+        },
+        {
+            "source": "gain1",
+            "sourceOutput": "output",
+            "target": "destination1",
+            "targetInput": "input"
+        }
+    ]
+}
