@@ -1,0 +1,56 @@
+{
+    "nodes": [
+      {
+        "id": "noise1",
+        "name": "Noise",
+        "data": {
+          "noiseType": "Blue Noise"
+        }
+      },
+      {
+        "id": "filter1",
+        "name": "Biquad Filter",
+        "data": {
+          "filterType": "bandpass",
+          "freq": 1000,
+          "q": 1,
+          "gain": 0
+        }
+      },
+      {
+        "id": "gain1",
+        "name": "Gain",
+        "data": {
+          "gain": 0.3
+        }
+      },
+      {
+        "id": "output1",
+        "name": "Universal Output",
+        "data": {
+          "gain": 1
+        }
+      }
+    ],
+    "connections": [
+      {
+        "from": "noise1",
+        "fromPort": "signal",
+        "to": "filter1",
+        "toPort": "signal"
+      },
+      {
+        "from": "filter1",
+        "fromPort": "signal",
+        "to": "gain1",
+        "toPort": "signal"
+      },
+      {
+        "from": "gain1",
+        "fromPort": "signal",
+        "to": "output1",
+        "toPort": "signal"
+      }
+    ]
+  }
+  

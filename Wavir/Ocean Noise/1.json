@@ -1,0 +1,44 @@
+{
+    "nodes": [
+        {
+            "id": "e02f5d3d1f8b6689",
+            "name": "Noise",
+            "data": { "noiseType": "Pink Noise" }
+        },
+        {
+            "id": "a5aeae4be4425a53",
+            "name": "Gain",
+            "data": { "gain": 0.5 }
+        },
+        {
+            "id": "2de007ab073014df",
+            "name": "Biquad Filter",
+            "data": { "freq": 500, "q": 1, "gain": 0, "filterType": "lowpass" }
+        },
+        {
+            "id": "4bc6e88cec5c0089",
+            "name": "Universal Output",
+            "data": { "gain": 0.5 }
+        }
+    ],
+    "connections": [
+        {
+            "source": "e02f5d3d1f8b6689",
+            "sourceOutput": "signal",
+            "target": "a5aeae4be4425a53",
+            "targetInput": "signal"
+        },
+        {
+            "source": "a5aeae4be4425a53",
+            "sourceOutput": "signal",
+            "target": "2de007ab073014df",
+            "targetInput": "signal"
+        },
+        {
+            "source": "2de007ab073014df",
+            "sourceOutput": "signal",
+            "target": "4bc6e88cec5c0089",
+            "targetInput": "signal"
+        }
+    ]
+}

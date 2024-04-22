@@ -1,0 +1,83 @@
+{
+    "nodes": [
+      {
+        "id": 1,
+        "type": "Noise",
+        "data": {
+          "noiseType": "Brown Noise"
+        },
+        "outputs": {
+          "signal": [
+            {
+              "nodeId": 2,
+              "field": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "id": 2,
+        "type": "Biquad Filter",
+        "data": {
+          "filterType": "lowpass",
+          "q": 1.0,
+          "freq": 1000,
+          "gain": 0
+        },
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": 1,
+              "field": "signal"
+            }
+          ]
+        },
+        "outputs": {
+          "signal": [
+            {
+              "nodeId": 3,
+              "field": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "id": 3,
+        "type": "Gain",
+        "data": {
+          "gain": 0.3
+        },
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": 2,
+              "field": "signal"
+            }
+          ]
+        },
+        "outputs": {
+          "signal": [
+            {
+              "nodeId": 4,
+              "field": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "type": "Universal Output",
+        "data": {
+          "gain": 1.0
+        },
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": 3,
+              "field": "signal"
+            }
+          ]
+        }
+      }
+    ]
+  }

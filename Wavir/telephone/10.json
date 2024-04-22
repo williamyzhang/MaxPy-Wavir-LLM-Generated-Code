@@ -1,0 +1,64 @@
+{
+    "nodes": [
+      {
+        "name": "Oscillator",
+        "id": "oscillator1",
+        "data": {
+          "waveform": "sine",
+          "baseFreq": 350
+        },
+        "inputs": {},
+        "outputs": {
+          "signal": "gain1:signal"
+        }
+      },
+      {
+        "name": "Oscillator",
+        "id": "oscillator2",
+        "data": {
+          "waveform": "sine",
+          "baseFreq": 440
+        },
+        "inputs": {},
+        "outputs": {
+          "signal": "gain2:signal"
+        }
+      },
+      {
+        "name": "Gain",
+        "id": "gain1",
+        "data": {
+          "gain": 0.1
+        },
+        "inputs": {
+          "signal": "oscillator1:signal"
+        },
+        "outputs": {
+          "signal": "universalOutput:signal"
+        }
+      },
+      {
+        "name": "Gain",
+        "id": "gain2",
+        "data": {
+          "gain": 0.1
+        },
+        "inputs": {
+          "signal": "oscillator2:signal"
+        },
+        "outputs": {
+          "signal": "universalOutput:signal"
+        }
+      },
+      {
+        "name": "Universal Output",
+        "id": "universalOutput",
+        "data": {
+          "gain": 1
+        },
+        "inputs": {
+          "signal": null
+        }
+      }
+    ]
+  }

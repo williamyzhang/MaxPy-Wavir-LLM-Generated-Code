@@ -1,0 +1,90 @@
+{
+    "nodes": [
+      {
+        "type": "Noise",
+        "id": "noise1",
+        "data": {
+          "noiseType": "Brown Noise"
+        }
+      },
+      {
+        "type": "Gain",
+        "id": "gain1",
+        "data": {
+          "gain": 0.3
+        },
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": "noise1",
+              "output": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "type": "BiquadFilter",
+        "id": "filter1",
+        "data": {
+          "filterType": "lowpass",
+          "freq": 1000,
+          "q": 1.0,
+          "gain": 0
+        },
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": "gain1",
+              "output": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Delay",
+        "id": "delay1",
+        "data": {
+          "delay": 0.2,
+          "maxDelay": 1
+        },
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": "filter1",
+              "output": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Gain",
+        "id": "gain2",
+        "data": {
+          "gain": 0.5
+        },
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": "delay1",
+              "output": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Universal Output",
+        "id": "output1",
+        "data": {
+          "gain": 1.0
+        },
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": "gain2",
+              "output": "signal"
+            }
+          ]
+        }
+      }
+    ]
+  }

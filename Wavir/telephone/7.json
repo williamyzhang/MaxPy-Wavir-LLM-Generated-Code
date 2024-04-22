@@ -1,0 +1,68 @@
+{
+    "nodes": [
+        {
+            "id": "osc1",
+            "type": "Oscillator",
+            "data": {
+                "frequency": 350,
+                "type": "sine"
+            }
+        },
+        {
+            "id": "osc2",
+            "type": "Oscillator",
+            "data": {
+                "frequency": 440,
+                "type": "sine"
+            }
+        },
+        {
+            "id": "gain1",
+            "type": "Gain",
+            "data": {
+                "gain": 0.1
+            }
+        },
+        {
+            "id": "gain2",
+            "type": "Gain",
+            "data": {
+                "gain": 0.1
+            }
+        },
+        {
+            "id": "merger",
+            "type": "ChannelMerger",
+            "data": {}
+        },
+        {
+            "id": "output",
+            "type": "AudioDestination",
+            "data": {}
+        }
+    ],
+    "connections": [
+        {
+            "source": "osc1",
+            "target": "gain1"
+        },
+        {
+            "source": "osc2",
+            "target": "gain2"
+        },
+        {
+            "source": "gain1",
+            "target": "merger",
+            "outputIndex": 0
+        },
+        {
+            "source": "gain2",
+            "target": "merger",
+            "outputIndex": 1
+        },
+        {
+            "source": "merger",
+            "target": "output"
+        }
+    ]
+}

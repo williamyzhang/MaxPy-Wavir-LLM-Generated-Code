@@ -1,0 +1,60 @@
+{
+    "nodes": [
+      {
+        "name": "Oscillator",
+        "id": "oscillator350",
+        "data": {
+          "waveform": "sine",
+          "baseFreq": 350
+        },
+        "inputs": {},
+        "outputs": {
+          "signal": [
+            "gainTone"
+          ]
+        }
+      },
+      {
+        "name": "Oscillator",
+        "id": "oscillator440",
+        "data": {
+          "waveform": "sine",
+          "baseFreq": 440
+        },
+        "inputs": {},
+        "outputs": {
+          "signal": [
+            "gainTone"
+          ]
+        }
+      },
+      {
+        "name": "Gain",
+        "id": "gainTone",
+        "data": {
+          "gain": 0.1
+        },
+        "inputs": {
+          "signal": [
+            "oscillator350",
+            "oscillator440"
+          ]
+        },
+        "outputs": {
+          "signal": [
+            "audioOut"
+          ]
+        }
+      },
+      {
+        "name": "Audio Output",
+        "id": "audioOut",
+        "inputs": {
+          "signal": [
+            "gainTone"
+          ]
+        }
+      }
+    ]
+  }
+  
