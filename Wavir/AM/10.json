@@ -1,0 +1,81 @@
+{
+    "nodes": [
+      {
+        "type": "Oscillator",
+        "id": "oscillator1",
+        "data": {
+          "waveform": "sine",
+          "baseFreq": 440
+        }
+      },
+      {
+        "type": "Gain",
+        "id": "gain1",
+        "data": {
+          "gain": 0.5
+        },
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": "oscillator1",
+              "output": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Oscillator",
+        "id": "modulator",
+        "data": {
+          "waveform": "sine",
+          "baseFreq": 10
+        }
+      },
+      {
+        "type": "Gain",
+        "id": "gainMod",
+        "data": {
+          "gain": 1
+        },
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": "modulator",
+              "output": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Gain",
+        "id": "gain2",
+        "data": {
+          "gain": 0
+        },
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": "gainMod",
+              "output": "signal"
+            },
+            {
+              "nodeId": "gain1",
+              "output": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Audio Output",
+        "id": "audioOutput",
+        "inputs": {
+          "signal": [
+            {
+              "nodeId": "gain2",
+              "output": "signal"
+            }
+          ]
+        }
+      }
+    ]
+  }

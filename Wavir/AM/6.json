@@ -1,0 +1,61 @@
+{
+    "nodes": [
+      {
+        "name": "Oscillator",
+        "data": {
+          "waveform": "sine",
+          "baseFreq": 440
+        },
+        "id": "osc1",
+        "outputs": {
+          "signal": [
+            {
+              "nodeId": "amGain",
+              "name": "additionalGain"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Constant",
+        "data": {
+          "value": 1
+        },
+        "id": "const1",
+        "outputs": {
+          "value": [
+            {
+              "nodeId": "amGain",
+              "name": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Gain",
+        "data": {
+          "gain": 0.5
+        },
+        "id": "amGain",
+        "inputs": {
+          "signal": [],
+          "additionalGain": []
+        },
+        "outputs": {
+          "signal": [
+            {
+              "nodeId": "audioOut",
+              "name": "signal"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Audio Output",
+        "id": "audioOut",
+        "inputs": {
+          "signal": []
+        }
+      }
+    ]
+  }

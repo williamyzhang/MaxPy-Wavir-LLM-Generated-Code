@@ -1,0 +1,65 @@
+{
+    "nodes": [
+      {
+        "id": "1",
+        "name": "Oscillator",
+        "data": {
+          "type": "sine",
+          "frequency": 440
+        }
+      },
+      {
+        "id": "2",
+        "name": "Oscillator",
+        "data": {
+          "type": "sine",
+          "frequency": 1
+        }
+      },
+      {
+        "id": "3",
+        "name": "Gain",
+        "data": {
+          "gain": 0.5
+        }
+      },
+      {
+        "id": "4",
+        "name": "Gain",
+        "data": {
+          "gain": 1
+        }
+      },
+      {
+        "id": "5",
+        "name": "Destination",
+        "data": {}
+      }
+    ],
+    "connections": [
+      {
+        "source": "1",
+        "target": "4",
+        "sourceOutput": "signal",
+        "targetInput": "signal"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "sourceOutput": "signal",
+        "targetInput": "signal"
+      },
+      {
+        "source": "3",
+        "target": "4",
+        "sourceOutput": "signal",
+        "targetInput": "gain"
+      },
+      {
+        "source": "4",
+        "target": "5",
+        "sourceOutput": "signal",
+        "targetInput": "signal"
+      }
+    ]
+  }

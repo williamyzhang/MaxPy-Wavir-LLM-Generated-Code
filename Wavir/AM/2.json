@@ -1,0 +1,1 @@
+{"nodes":[{"id":"1","name":"Oscillator","data":{"baseFreq":440,"waveform":"sine"}},{"id":"2","name":"Gain","data":{"gain":0.5}},{"id":"3","name":"Oscillator","data":{"baseFreq":1,"waveform":"sine"}},{"id":"4","name":"Gain","data":{"gain":1}}],"connections":[],"comments":[]}

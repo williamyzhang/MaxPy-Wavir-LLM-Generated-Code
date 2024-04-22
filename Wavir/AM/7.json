@@ -1,0 +1,55 @@
+{
+    "nodes": [
+      {
+        "id": "osc1",
+        "name": "Oscillator",
+        "data": { "frequency": 440, "waveform": "sine" }
+      },
+      {
+        "id": "osc2",
+        "name": "Oscillator",
+        "data": { "frequency": 1, "waveform": "sine" }
+      },
+      {
+        "id": "gainMod",
+        "name": "Gain",
+        "data": { "gain": 0.5 }
+      },
+      {
+        "id": "gain",
+        "name": "Gain",
+        "data": { "gain": 0.5 }
+      },
+      {
+        "id": "output",
+        "name": "Universal Output",
+        "data": { "gain": 0.5 }
+      }
+    ],
+    "connections": [
+      {
+        "source": "osc1",
+        "sourceOutput": "signal",
+        "target": "gain",
+        "targetInput": "signal"
+      },
+      {
+        "source": "osc2",
+        "sourceOutput": "signal",
+        "target": "gainMod",
+        "targetInput": "signal"
+      },
+      {
+        "source": "gainMod",
+        "sourceOutput": "signal",
+        "target": "gain",
+        "targetInput": "additionalGain"
+      },
+      {
+        "source": "gain",
+        "sourceOutput": "signal",
+        "target": "output",
+        "targetInput": "signal"
+      }
+    ]
+  }
