@@ -1,0 +1,90 @@
+{
+  "name": "Bird Call Simulation",
+  "nodes": [
+    {
+      "id": "osc1",
+      "type": "Oscillator",
+      "data": {
+        "waveform": "sine",
+        "baseFreq": 1400
+      }
+    },
+    {
+      "id": "osc2",
+      "type": "Oscillator",
+      "data": {
+        "waveform": "sine",
+        "baseFreq": 1500
+      }
+    },
+    {
+      "id": "gain1",
+      "type": "Gain",
+      "data": {
+        "gain": 0.1
+      },
+      "inputs": {
+        "signal": [
+          {
+            "nodeId": "osc1",
+            "socketId": "signal"
+          },
+          {
+            "nodeId": "osc2",
+            "socketId": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "filter1",
+      "type": "Biquad Filter",
+      "data": {
+        "filterType": "bandpass",
+        "q": 1,
+        "freq": 5000,
+        "gain": 0
+      },
+      "inputs": {
+        "signal": [
+          {
+            "nodeId": "gain1",
+            "socketId": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "filterMod",
+      "type": "Oscillator",
+      "data": {
+        "waveform": "triangle",
+        "baseFreq": 5
+      },
+      "outputs": {
+        "signal": [
+          {
+            "nodeId": "filter1",
+            "socketId": "frequency",
+            "type": "MODULATION"
+          }
+        ]
+      }
+    },
+    {
+      "id": "output",
+      "type": "Universal Output",
+      "data": {
+        "gain": 0.5
+      },
+      "inputs": {
+        "signal": [
+          {
+            "nodeId": "filter1",
+            "socketId": "signal"
+          }
+        ]
+      }
+    }
+  ]
+}
