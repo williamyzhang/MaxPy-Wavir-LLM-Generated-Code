@@ -1,0 +1,55 @@
+{
+    "nodes": [
+        {
+            "id": "modulatorOsc",
+            "name": "Oscillator",
+            "data": { "baseFreq": 440, "waveform": "sine" }
+        },
+        {
+            "id": "carrierOsc",
+            "name": "Oscillator",
+            "data": { "baseFreq": 220, "waveform": "sine" }
+        },
+        {
+            "id": "gainModulator",
+            "name": "Gain",
+            "data": { "gain": 100 }
+        },
+        {
+            "id": "gainCarrier",
+            "name": "Gain",
+            "data": { "gain": 0.5 }
+        },
+        {
+            "id": "output",
+            "name": "Universal Output",
+            "data": { "gain": 1 }
+        }
+    ],
+    "connections": [
+        {
+            "source": "modulatorOsc",
+            "sourceOutput": "signal",
+            "target": "gainModulator",
+            "targetInput": "signal"
+        },
+        {
+            "source": "gainModulator",
+            "sourceOutput": "signal",
+            "target": "carrierOsc",
+            "targetInput": "frequency"
+        },
+        {
+            "source": "carrierOsc",
+            "sourceOutput": "signal",
+            "target": "gainCarrier",
+            "targetInput": "signal"
+        },
+        {
+            "source": "gainCarrier",
+            "sourceOutput": "signal",
+            "target": "output",
+            "targetInput": "signal"
+        }
+    ]
+}

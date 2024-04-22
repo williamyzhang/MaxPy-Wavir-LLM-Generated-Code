@@ -1,0 +1,48 @@
+{
+    "nodes": [
+      {
+        "id": "osc1",
+        "type": "Oscillator",
+        "properties": {
+          "frequency": 440,
+          "type": "sine"
+        }
+      },
+      {
+        "id": "modulator",
+        "type": "Oscillator",
+        "properties": {
+          "frequency": 220,
+          "type": "sine"
+        }
+      },
+      {
+        "id": "modGain",
+        "type": "Gain",
+        "properties": {
+          "gain": 100
+        }
+      },
+      {
+        "id": "output",
+        "type": "AudioDestinationNode",
+        "properties": {}
+      }
+    ],
+    "connections": [
+      {
+        "source": "modulator",
+        "target": "modGain"
+      },
+      {
+        "source": "modGain",
+        "target": "osc1",
+        "param": "frequency"
+      },
+      {
+        "source": "osc1",
+        "target": "output"
+      }
+    ]
+  }
+  

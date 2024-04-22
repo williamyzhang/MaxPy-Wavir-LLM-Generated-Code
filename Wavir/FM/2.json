@@ -1,0 +1,50 @@
+{
+    "nodes": [
+      {
+        "type": "Oscillator",
+        "id": "modulator",
+        "data": {
+          "waveform": "sine",
+          "baseFreq": 200
+        }
+      },
+      {
+        "type": "Gain",
+        "id": "modulationIndex",
+        "data": {
+          "gain": 100
+        }
+      },
+      {
+        "type": "Oscillator",
+        "id": "carrier",
+        "data": {
+          "waveform": "sine",
+          "baseFreq": 440
+        },
+        "inputs": {
+          "frequency": {
+            "socket": "modulationIndex:signal"
+          }
+        }
+      },
+      {
+        "type": "AudioOutput",
+        "inputs": {
+          "signal": {
+            "id": "carrier"
+          }
+        }
+      }
+    ],
+    "connections": [
+      {
+        "from": "modulator:signal",
+        "to": "modulationIndex:signal"
+      },
+      {
+        "from": "modulationIndex:signal",
+        "to": "carrier:frequency"
+      }
+    ]
+  }

@@ -1,0 +1,65 @@
+{
+    "nodes": [
+        {
+            "id": "modulator",
+            "name": "Oscillator",
+            "data": {
+                "waveform": "sine",
+                "baseFreq": 440
+            }
+        },
+        {
+            "id": "carrier",
+            "name": "Oscillator",
+            "data": {
+                "waveform": "sine",
+                "baseFreq": 440
+            }
+        },
+        {
+            "id": "modGain",
+            "name": "Gain",
+            "data": {
+                "gain": 100
+            }
+        },
+        {
+            "id": "outputGain",
+            "name": "Gain",
+            "data": {
+                "gain": 0.1
+            }
+        },
+        {
+            "id": "audioOutput",
+            "name": "Universal Output",
+            "data": {}
+        }
+    ],
+    "connections": [
+        {
+            "source": "modulator",
+            "sourceOutput": "signal",
+            "target": "modGain",
+            "targetInput": "signal"
+        },
+        {
+            "source": "modGain",
+            "sourceOutput": "signal",
+            "target": "carrier",
+            "targetInput": "frequency"
+        },
+        {
+            "source": "carrier",
+            "sourceOutput": "signal",
+            "target": "outputGain",
+            "targetInput": "signal"
+        },
+        {
+            "source": "outputGain",
+            "sourceOutput": "signal",
+            "target": "audioOutput",
+            "targetInput": "signal"
+        }
+    ]
+}

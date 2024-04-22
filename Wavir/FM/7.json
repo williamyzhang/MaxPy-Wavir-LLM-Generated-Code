@@ -1,0 +1,52 @@
+{
+    "nodes": [
+      {
+        "id": "1",
+        "name": "Oscillator",
+        "data": {
+          "baseFreq": 440,
+          "waveform": "sine"
+        }
+      },
+      {
+        "id": "2",
+        "name": "Oscillator",
+        "data": {
+          "baseFreq": 100,
+          "waveform": "sine"
+        }
+      },
+      {
+        "id": "3",
+        "name": "Gain",
+        "data": {
+          "gain": 100
+        }
+      },
+      {
+        "id": "4",
+        "name": "Universal Output",
+        "data": {}
+      }
+    ],
+    "connections": [
+      {
+        "source": "2",
+        "sourceOutput": "signal",
+        "target": "3",
+        "targetInput": "signal"
+      },
+      {
+        "source": "3",
+        "sourceOutput": "signal",
+        "target": "1",
+        "targetInput": "modulation"
+      },
+      {
+        "source": "1",
+        "sourceOutput": "signal",
+        "target": "4",
+        "targetInput": "signal"
+      }
+    ]
+  }
