@@ -1,0 +1,151 @@
+{
+  "nodes": [
+    {
+      "id": "1",
+      "type": "Oscillator",
+      "data": {
+        "waveform": "triangle",
+        "baseFreq": 1400
+      },
+      "inputs": {},
+      "outputs": {
+        "signal": [
+          "4"
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "type": "Oscillator",
+      "data": {
+        "waveform": "sine",
+        "baseFreq": 1600
+      },
+      "inputs": {},
+      "outputs": {
+        "signal": [
+          "4"
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "type": "Oscillator",
+      "data": {
+        "waveform": "square",
+        "baseFreq": 1200
+      },
+      "inputs": {},
+      "outputs": {
+        "signal": [
+          "4"
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "type": "Gain",
+      "data": {
+        "gain": 0.3
+      },
+      "inputs": {
+        "signal": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "outputs": {
+        "signal": [
+          "5"
+        ]
+      }
+    },
+    {
+      "id": "5",
+      "type": "BiquadFilter",
+      "data": {
+        "filterType": "bandpass",
+        "q": 10,
+        "freq": 1550,
+        "gain": 0
+      },
+      "inputs": {
+        "signal": [
+          "4"
+        ]
+      },
+      "outputs": {
+        "signal": [
+          "6"
+        ]
+      }
+    },
+    {
+      "id": "6",
+      "type": "Delay",
+      "data": {
+        "delay": 0.1,
+        "maxDelay": 1
+      },
+      "inputs": {
+        "signal": [
+          "5"
+        ]
+      },
+      "outputs": {
+        "signal": [
+          "7"
+        ]
+      }
+    },
+    {
+      "id": "7",
+      "type": "Gain",
+      "data": {
+        "gain": 0.7
+      },
+      "inputs": {
+        "signal": [
+          "6"
+        ]
+      },
+      "outputs": {
+        "signal": [
+          "8",
+          "9"
+        ]
+      }
+    },
+    {
+      "id": "8",
+      "type": "Time Domain Visualizer",
+      "inputs": {
+        "signal": [
+          "7"
+        ]
+      },
+      "outputs": {}
+    },
+    {
+      "id": "9",
+      "type": "Frequency Domain Visualizer",
+      "inputs": {
+        "signal": [
+          "7"
+        ]
+      },
+      "outputs": {}
+    },
+    {
+      "id": "10",
+      "type": "Audio Output",
+      "inputs": {
+        "signal": [
+          "7"
+        ]
+      },
+      "outputs": {}
+    }
+  ]
+}

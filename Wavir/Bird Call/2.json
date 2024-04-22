@@ -1,0 +1,112 @@
+{
+  "name": "Audio Output",
+  "nodes": [
+    {
+      "name": "Oscillator",
+      "id": "osc1",
+      "data": {
+        "waveform": "sine",
+        "baseFreq": 1400
+      },
+      "inputs": {},
+      "outputs": {
+        "signal": [
+          {
+            "id": "gain1",
+            "input": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Gain",
+      "id": "gain1",
+      "data": {
+        "gain": 0.5
+      },
+      "inputs": {
+        "signal": [
+          {
+            "id": "osc1",
+            "output": "signal"
+          }
+        ],
+        "additionalGain": []
+      },
+      "outputs": {
+        "signal": [
+          {
+            "id": "biquadFilter1",
+            "input": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Biquad Filter",
+      "id": "biquadFilter1",
+      "data": {
+        "filterType": "lowpass",
+        "q": 1,
+        "freq": 5000,
+        "gain": 0
+      },
+      "inputs": {
+        "signal": [
+          {
+            "id": "gain1",
+            "output": "signal"
+          }
+        ],
+        "frequency": [],
+        "q": [],
+        "gain": []
+      },
+      "outputs": {
+        "signal": [
+          {
+            "id": "delay1",
+            "input": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Delay",
+      "id": "delay1",
+      "data": {
+        "delay": 0.1,
+        "maxDelay": 1
+      },
+      "inputs": {
+        "signal": [
+          {
+            "id": "biquadFilter1",
+            "output": "signal"
+          }
+        ],
+        "delayTime": []
+      },
+      "outputs": {
+        "signal": [
+          {
+            "id": "audioOutput1",
+            "input": "signal"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Audio Output",
+      "id": "audioOutput1",
+      "inputs": {
+        "signal": [
+          {
+            "id": "delay1",
+            "output": "signal"
+          }
+        ]
+      }
+    }
+  ]
+}

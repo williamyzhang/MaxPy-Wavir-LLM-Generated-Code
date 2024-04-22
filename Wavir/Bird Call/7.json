@@ -1,0 +1,81 @@
+{
+  "nodes": [
+    {
+      "name": "Oscillator",
+      "id": "bird-call-osc1",
+      "data": {
+        "waveform": "sine",
+        "baseFreq": 440
+      },
+      "inputs": {},
+      "outputs": {
+        "signal": "gain-bird1-input"
+      }
+    },
+    {
+      "name": "Oscillator",
+      "id": "bird-call-osc2",
+      "data": {
+        "waveform": "triangle",
+        "baseFreq": 880
+      },
+      "inputs": {},
+      "outputs": {
+        "signal": "gain-bird2-input"
+      }
+    },
+    {
+      "name": "Gain",
+      "id": "gain-bird1",
+      "data": {
+        "gain": 0.1
+      },
+      "inputs": {
+        "signal": "bird-call-osc1"
+      },
+      "outputs": {
+        "signal": "delay-input"
+      }
+    },
+    {
+      "name": "Gain",
+      "id": "gain-bird2",
+      "data": {
+        "gain": 0.1
+      },
+      "inputs": {
+        "signal": "bird-call-osc2"
+      },
+      "outputs": {
+        "signal": "delay-input"
+      }
+    },
+    {
+      "name": "Delay",
+      "id": "delay",
+      "data": {
+        "delay": 0.1,
+        "maxDelay": 1
+      },
+      "inputs": {
+        "signal": "gain-bird1"
+      },
+      "outputs": {
+        "signal": "universal-output-input"
+      }
+    },
+    {
+      "name": "Universal Output",
+      "id": "universal-output",
+      "data": {
+        "gain": 1
+      },
+      "inputs": {
+        "signal": [
+          "delay",
+          "gain-bird2"
+        ]
+      }
+    }
+  ]
+}

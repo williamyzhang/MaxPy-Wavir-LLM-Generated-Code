@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "name": "Oscillator",
+      "id": "osc1",
+      "data": {
+        "waveform": "sine",
+        "baseFreq": 1400
+      },
+      "inputs": [],
+      "outputs": [
+        {
+          "to": "filter1",
+          "outputName": "signal",
+          "inputName": "signal"
+        }
+      ]
+    },
+    {
+      "name": "Biquad Filter",
+      "id": "filter1",
+      "data": {
+        "filterType": "bandpass",
+        "q": 1,
+        "freq": 5000,
+        "gain": 0
+      },
+      "inputs": [],
+      "outputs": [
+        {
+          "to": "gain1",
+          "outputName": "signal",
+          "inputName": "signal"
+        }
+      ]
+    },
+    {
+      "name": "Gain",
+      "id": "gain1",
+      "data": {
+        "gain": 0.2
+      },
+      "inputs": [],
+      "outputs": [
+        {
+          "to": "audioOut",
+          "outputName": "signal",
+          "inputName": "signal"
+        }
+      ]
+    },
+    {
+      "name": "Audio Output",
+      "id": "audioOut",
+      "data": {},
+      "inputs": [],
+      "outputs": []
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "id": "83214a48a",
+      "name": "Oscillator",
+      "data": {
+        "baseFreq": 440,
+        "waveform": "triangle"
+      }
+    },
+    {
+      "id": "5e421b2b8",
+      "name": "Gain",
+      "data": {
+        "gain": 0.2
+      }
+    },
+    {
+      "id": "92b21d399",
+      "name": "Biquad Filter",
+      "data": {
+        "freq": 5000,
+        "q": 1,
+        "gain": 0,
+        "filterType": "highpass"
+      }
+    },
+    {
+      "id": "5cb224e1e",
+      "name": "Keyboard ADSR",
+      "data": {
+        "keyCode": "KeyA",
+        "adsrProfile": {
+          "attack": 0.01,
+          "attackLength": 0.1,
+          "decay": 0.1,
+          "decayLength": 0.2,
+          "sustain": 0.2,
+          "sustainLength": 0.1,
+          "releaseLength": 0.4
+        }
+      }
+    },
+    {
+      "id": "d9e21b4ca",
+      "name": "Universal Output",
+      "data": {
+        "gain": 0.5
+      }
+    }
+  ],
+  "connections": [
+    {
+      "source": "83214a48a",
+      "sourceOutput": "signal",
+      "target": "5e421b2b8",
+      "targetInput": "signal"
+    },
+    {
+      "source": "5e421b2b8",
+      "sourceOutput": "signal",
+      "target": "92b21d399",
+      "targetInput": "signal"
+    },
+    {
+      "source": "92b21d399",
+      "sourceOutput": "signal",
+      "target": "5cb224e1e",
+      "targetInput": "adsrFilter"
+    },
+    {
+      "source": "5cb224e1e",
+      "sourceOutput": "signal",
+      "target": "d9e21b4ca",
+      "targetInput": "signal"
+    }
+  ]
+}

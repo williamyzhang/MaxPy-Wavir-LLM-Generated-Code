@@ -1,0 +1,106 @@
+{
+  "nodes": [
+    {
+      "type": "Oscillator",
+      "id": "osc1",
+      "data": {
+        "waveform": "triangle",
+        "baseFreq": 1400
+      }
+    },
+    {
+      "type": "Gain",
+      "id": "gain1",
+      "data": {
+        "gain": 0.2
+      }
+    },
+    {
+      "type": "BiquadFilter",
+      "id": "filter1",
+      "data": {
+        "filterType": "bandpass",
+        "freq": 5000,
+        "q": 10,
+        "gain": 0
+      }
+    },
+    {
+      "type": "Delay",
+      "id": "delay1",
+      "data": {
+        "delay": 0.1,
+        "maxDelay": 2
+      }
+    },
+    {
+      "type": "Constant",
+      "id": "constant1",
+      "data": {
+        "value": 100
+      }
+    },
+    {
+      "type": "Noise",
+      "id": "noise1",
+      "data": {
+        "noiseType": "White Noise"
+      }
+    },
+    {
+      "type": "Gain",
+      "id": "gainNoise",
+      "data": {
+        "gain": 0.05
+      }
+    },
+    {
+      "type": "Audio Output",
+      "id": "output1"
+    }
+  ],
+  "connections": [
+    {
+      "from": "osc1",
+      "to": "filter1",
+      "output": "signal",
+      "input": "signal"
+    },
+    {
+      "from": "filter1",
+      "to": "gain1",
+      "output": "signal",
+      "input": "signal"
+    },
+    {
+      "from": "gain1",
+      "to": "delay1",
+      "output": "signal",
+      "input": "signal"
+    },
+    {
+      "from": "delay1",
+      "to": "output1",
+      "output": "signal",
+      "input": "signal"
+    },
+    {
+      "from": "noise1",
+      "to": "gainNoise",
+      "output": "signal",
+      "input": "signal"
+    },
+    {
+      "from": "gainNoise",
+      "to": "output1",
+      "output": "signal",
+      "input": "signal"
+    },
+    {
+      "from": "constant1",
+      "to": "gain1",
+      "output": "value",
+      "input": "additionalGain"
+    }
+  ]
+}

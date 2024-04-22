@@ -1,0 +1,76 @@
+{
+  "nodes": [
+    {
+      "name": "Oscillator",
+      "id": "oscillator1",
+      "data": {
+        "waveform": "triangle",
+        "baseFreq": 1400
+      }
+    },
+    {
+      "name": "Gain",
+      "id": "gain1",
+      "data": {
+        "gain": 0.2
+      }
+    },
+    {
+      "name": "Delay",
+      "id": "delay1",
+      "data": {
+        "delay": 0.1,
+        "maxDelay": 1
+      }
+    },
+    {
+      "name": "Biquad Filter",
+      "id": "filter1",
+      "data": {
+        "filterType": "bandpass",
+        "q": 1,
+        "freq": 1500,
+        "gain": 0
+      }
+    },
+    {
+      "name": "Audio Output",
+      "id": "output1",
+      "data": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "oscillator1",
+      "to": "gain1",
+      "sockets": {
+        "output": "signal",
+        "input": "signal"
+      }
+    },
+    {
+      "from": "gain1",
+      "to": "delay1",
+      "sockets": {
+        "output": "signal",
+        "input": "signal"
+      }
+    },
+    {
+      "from": "delay1",
+      "to": "filter1",
+      "sockets": {
+        "output": "signal",
+        "input": "signal"
+      }
+    },
+    {
+      "from": "filter1",
+      "to": "output1",
+      "sockets": {
+        "output": "signal",
+        "input": "signal"
+      }
+    }
+  ]
+}
