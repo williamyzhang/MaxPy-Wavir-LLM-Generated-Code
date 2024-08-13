@@ -1,0 +1,19 @@
+Language,Pass@1,Pass@3
+MaxMSP JSON (Overall),.300,.662
+MaxMSP JSON (Specific),.300,.666
+MaxMSP JSON (Creative),.300,.666
+MaxPy (Overall),.310,.676
+MaxPy (Specific),.400,.793
+MaxPy (Creative),.220,.534
+MaxPy Rich Code (Overall),.200,.492
+MaxPy Rich Code (Specific),.220,.534
+MaxPy Rich Code (Creative),.180,.456
+Wavir JSON (Overall),.080,.223
+Wavir JSON (Specific),.120,.324
+Wavir JSON (Creative),.040,.118
+Web Audio (Overall),.380,.766
+Web Audio (Specific),.420,.814
+Web Audio (Creative),.340,.722
+Web Audio Rich Code (Overall),.410,.799
+Web Audio Rich Code (Specific),.440,.833
+Web Audio Rich Code (Creative),.380,.771
