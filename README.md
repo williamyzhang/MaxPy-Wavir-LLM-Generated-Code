@@ -22,6 +22,10 @@ Each folder for a language/level of representation contains 10 subfolders, each 
 
 **semantically-correct.csv** contains the raw semantic correctness scores for each benchmark and language, as assigned by our evaluators.
 
+**well-formed.csv** contains the number of samples that are well-formed for each benchmark and language.
+
+**complexity.csv** contains the average complexity (measured by node count) of well-formed samples for each benchmark and language. Note that there are **NaN** values for Wavir JSON, as there were some benchmarks for which no generated Wavir code was well-formed.
+
 # Evaluation Process
 Our manual evaluation process for semantic correctness is as follows:
 
