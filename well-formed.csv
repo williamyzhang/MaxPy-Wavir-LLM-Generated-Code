@@ -1,0 +1,11 @@
+Benchmark,Wavir (JSON),Web Audio,Web Audio (rich code),Max (JSON),MaxPy,MaxPy (rich code)
+Additive,1,7,6,9,9,6
+AM,3,5,4,10,8,7
+FM,3,7,8,8,9,5
+LFO,2,6,8,8,8,4
+Filtered noise,0,5,3,9,9,3
+Church bell,0,5,5,8,4,3
+Telephone dial,3,2,4,9,7,6
+Bird call,1,4,8,7,4,4
+Ocean waves,2,5,4,10,5,7
+Babbling brook,0,4,6,9,4,3

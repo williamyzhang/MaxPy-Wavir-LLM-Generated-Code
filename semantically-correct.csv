@@ -1,5 +1,5 @@
 Benchmark,Wavir (JSON),Web Audio,Web Audio (rich code),Max (JSON),MaxPy,MaxPy (rich code)
-additive,1,6,5,9,9,6
+Additive,1,6,5,9,9,6
 AM,1,0,0,10,8,5
 FM,2,4,6,3,6,2
 LFO,2,6,8,4,6,2
